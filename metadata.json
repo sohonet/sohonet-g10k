@@ -1,0 +1,40 @@
+{
+  "name": "sohonet-g10k",
+  "version": "0.1.0",
+  "author": "Sohonet Limited",
+  "summary": "Puppet Module for deploying g10k",
+  "license": "MIT",
+  "source": "https://github.com/sohonet/sohonet-g10k",
+  "project_page": "https://github.com/sohonet/sohonet-g10k",
+  "issues_url": "https://github.com/sohonet/sohonet-g10k/issues",
+  "dependencies": [
+    {
+      "name": "puppet/archive",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.25.0 < 5.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.7.0 < 6.0.0"
+    }
+  ]
+}

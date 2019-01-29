@@ -1,0 +1,30 @@
+<%-|
+  String                         $cache_dir,
+  String                         $source_name,
+  String                         $source_remote,
+  String                         $source_basedir,
+  Boolean                        $use_cache_fallback,
+  Array[String]                  $postrun,
+  Optional[Hash[String, String]] $additional_settings = undef,
+|-%>
+---
+:cachedir: '<%= $cache_dir %>'
+use_cache_fallback : <%= $use_cache_fallback %>
+
+# A list of git repositories to create
+sources:
+    <%= $source_name %>:
+        remote  : <%= $source_remote %>
+        basedir : <%= $source_basedir %>
+    <%- if $additional_settings { -%>
+    <%- $additional_settings.keys.sort.each |$setting| { -%>
+        <%= $setting %> : <%= $additional_settings[$setting] %>
+    <%- } -%>
+    <%- } -%>
+
+<% if ! empty($postrun) { -%>
+postrun:
+<% $postrun.each |$item| { -%>
+  - <%= $item %>
+<% } -%>
+<% } -%>
