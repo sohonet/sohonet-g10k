@@ -292,7 +292,7 @@ class Server < Sinatra::Base
 
     def deploy(branch, deleted)
       begin
-        command = "#{$command_prefix} /opt/puppetlabs/g10k/g10k -config /opt/puppetlabs/g10k/g10k.yaml -branch #{branch}"
+        command = "#{$command_prefix} /opt/puppetlabs/g10k/g10k -config /etc/puppetlabs/g10k/g10k.yaml -branch #{branch}"
         message = run_command(command)
         status_message =  {:status => :success, :message => message.to_s, :branch => branch, :status_code => 200}
         $logger.info("message: #{message} branch: #{branch}")

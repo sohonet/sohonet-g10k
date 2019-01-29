@@ -73,7 +73,7 @@ class g10k(
   )
 
   # Directories
-  file { ['/opt/puppetlabs/g10k', $cache_dir]:
+  file { ['/etc/puppetlabs/g10k', '/opt/puppetlabs/g10k', $cache_dir]:
     ensure => directory,
     mode   => '0775',
   }
@@ -92,8 +92,8 @@ class g10k(
     mode   => '0755',
   }
 
-  # Configuration 
-  file { '/opt/puppetlabs/g10k/g10k.yaml':
+  # Configuration
+  file { '/etc/puppetlabs/g10k/g10k.yaml':
     ensure  => file,
     content => epp('g10k/g10k.yaml.epp',{
       cache_dir           => $cache_dir,
