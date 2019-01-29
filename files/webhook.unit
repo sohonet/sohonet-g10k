@@ -1,0 +1,12 @@
+[Unit]
+Description=g10k webhook
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/puppetlabs/g10k/webhook
+PIDFile=/var/run/webhook/webhook.pid
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
